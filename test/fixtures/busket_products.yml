@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  busket_id: 1
+  product_id: 1
+
+two:
+  busket_id: 1
+  product_id: 1

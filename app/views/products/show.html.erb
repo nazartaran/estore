@@ -1,0 +1,24 @@
+<div class="container">
+<table class='table'>
+  <tr>
+  	<th>Description</th>
+    <th>Price</th>
+    <th>Image</th>
+    <th>Tags</th>
+  </tr>
+  <tr>
+  	<td><%= @product.description %></td>
+    <td><%= @product.price %></td>
+    <td><%= image_tag(@product.image, size: "250x200", class: 'img-circle') %></td>
+    <% @tags_array.each do |t| %> 
+    <td><%= link_to t[:title], search_path(:condition => 'tag', :query => t[:title]) %></td>
+    <%end%>
+  </tr>
+</table>
+<%= render '/products/busket_item', :product_id => @product.id %>
+<section class="comment-list">
+    <%= render '/product_comments/list', :comments => @comments %>
+    <%= render '/product_comments/form', :comment => @comment, :product_id => @product.id,
+                                         :category_id => @product.category_id %>
+</section>
+</div>

@@ -1,0 +1,141 @@
+/*
+ *= require bootstrap_and_overrides
+ */
+ /*
+ *= require rails_bootstrap_forms
+ */
+ ul.hmenu {
+  list-style: none; 
+  margin: 0 0 2em;
+  padding: 0;
+}
+
+ul.hmenu li {
+  display: inline;  
+}
+
+body {
+	background-image: url('/assets/blur.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+
+.nilstar {
+  background-image: url("/assets/nilstar.png");
+  background-repeat:no-repeat;
+  background-size:25px 25px;
+  width:25px;
+  height: 25px;
+  display: inline-block;
+}
+
+.star {
+  background-image: url("/assets/star.png");
+  background-repeat:no-repeat;
+  background-size:25px 25px;
+  width:25px;
+  height: 25px;
+  display: inline-block;
+}
+
+.rate {
+  background-image: url("/assets/star.png");
+  background-repeat:no-repeat;
+  background-size:25px 25px;
+  width:25px;
+  height: 25px;
+  display: inline-block;
+}
+
+
+.delete_icon {
+  background-image: url("/assets/delete.png");
+  background-repeat:no-repeat;
+  background-size:25px 25px;
+  width:25px;
+  height: 25px;
+}
+
+
+
+
+
+/* Commments bullshit */
+
+.comment-list .row {
+margin-bottom: 0px;
+}
+.comment-list .panel .panel-heading {
+ padding: 4px 15px;
+ position: absolute;
+ border:none;
+/*Panel-heading border radius*/
+border-top-right-radius:0px;
+top: 1px;
+}
+.comment-list .panel .panel-heading.right {
+border-right-width: 0px;
+/*Panel-heading border radius*/
+border-top-left-radius:0px;
+right: 16px;
+}
+.comment-list .panel .panel-heading .panel-body {
+padding-top: 6px;
+}
+.comment-list figcaption {
+/*For wrap text is thumbnail*/
+word-wrap: break-word;
+}
+/* Portrait tablets and medium desktops */
+@media (min-width: 768px) {
+.comment-list .arrow:after, .comment-list .arrow:before {
+content: "";
+position: absolute;
+width: 0;
+height: 0;
+border-style: solid;
+border-color: transparent;
+}
+.comment-list .panel.arrow.left:after, .comment-list .panel.arrow.left:befor {
+border-left: 0;
+}
+/*****Left Arrow*****/
+/*Outline effect style*/
+.comment-list .panel.arrow.left:before {
+left: 0px;
+top: 30px;
+/*Use boarder color of panel*/
+border-right-color: inherit;
+border-width: 16px;
+}
+/*Background color effect*/
+.comment-list .panel.arrow.left:after {
+left: 1px;
+top: 31px;
+/*Change for different outline color*/
+border-right-color: #FFFFFF;
+border-width: 15px;
+}
+/*****Right Arrow*****/
+/*Outline effect style*/
+.comment-list .panel.arrow.right:before {
+right: -16px;
+top: 30px;
+/*Use boarder color of panel*/
+border-left-color: inherit;
+border-width: 16px;
+}
+/*Background color effect*/
+.comment-list .panel.arrow.right:after {
+right: -14px;
+top: 31px;
+/*Change for different outline color*/
+border-left-color: #FFFFFF;
+border-width: 15px;
+}
+}
+.comment-list .comment-post {
+margin-top: 6px;
+}

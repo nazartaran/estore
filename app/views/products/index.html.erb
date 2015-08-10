@@ -1,0 +1,16 @@
+<table class='table'>
+  <tr>
+    <th>Product name</th>
+    <th>Price</th>
+    <th>Image preview</th>
+  </tr>
+  <% @product.each do |c| %>
+  <tr>
+    <td><%= link_to "#{c.name}", product_info_path(:category_id => c.category_id, :id => c.id)%></td>
+    <td><%= c.price %></td>
+    <td><%= image_tag(c.image, size: "60x40", class: 'img-circle') %></td>
+    <td><%= render '/products/busket_item', :product_id => c.id %></td>
+  </tr>
+  <% end %>
+</table>
+</div>

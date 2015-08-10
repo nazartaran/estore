@@ -1,0 +1,64 @@
+<div class="container">
+ <div class="row">
+  <div class="col-md-8">
+    <h2 class="page-header">Comments</h2>
+     <% @comments.each do |c| %>
+    <section class="comment-list">
+      <div class="row">
+        <div class="col-md-2 col-sm-2 hidden-xs">
+          <figure class="thumbnail">
+            <img class="img-responsive" src="http://www.keita-gaming.com/assets/profile/default-avatar-c5d8ec086224cb6fc4e395f4ba3018c2.jpg" />
+            <figcaption class="text-center"><%= c.email %></figcaption>
+          </figure>
+        </div>
+        <div class="col-md-10 col-sm-10">
+          <div class="panel panel-default arrow left">
+            <div class="panel-body">
+              <header class="text-left">
+                <div class="comment-user"><i class="fa fa-user"></i> <%= c.email %></div>
+                <time class="comment-date"><i class="fa fa-clock-o"></i> <%=c.created_at %></time>
+              </header>
+              <div class="comment-post" id=<%="#{c.id}"%>>
+                <p>
+                  <%= c.comment %>
+                  <% unless c.rate == nil %>
+                    <% c.rate.times do |r| %>
+                      <div class="rate" id=<%="rate_#{r}"%>></div>
+                    <%end%>
+                  <% end %>
+                </p>
+              </div>
+              <p class="text-right"><a href="javascript:void(0)" class="reply btn btn-default btn-sm" data-id=<%="#{c.id}"%>><i class="fa fa-reply" ></i> reply</a></p>
+            </div>
+            <% c.nested_comments.each do |n| %>
+             <div class="panel panel-default arrow left">
+               <div class="panel-body">
+                 <header class="text-left">
+                   <div class="comment-user" ><b>User:</b><i class="fa fa-user"></i> <%= n.email %></div>
+                     <time class="comment-date"><b>Commented at:<br></b><i class="fa fa-clock-o"></i> <%=n.created_at %></time>
+                       <div class="text-right"><p><%= n.comment %></p></div>
+                 </header>
+               </div>
+              </div>
+              
+            <%end%>
+          </div>
+        </div>
+      </div>
+      <div class='append_reply' data-id=<%="#{c.id}"%> style = "display: none;"></div>   
+    </section>
+  <% end %>
+</div>
+
+
+
+
+
+
+
+
+<%= javascript_tag do %>
+  window.category_id = "<%= j @product.category_id.to_s%>";
+  window.product_id = "<%= j @product.id.to_s%>";
+  <% end %>
+

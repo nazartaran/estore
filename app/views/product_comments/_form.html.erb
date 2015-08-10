@@ -1,0 +1,10 @@
+<%= bootstrap_form_for @comment, url: { controller: 'product_comments', action: "create", method: :post, :product_id => product_id, :category_id => category_id } do |c| %>
+<%= c.text_area :comment, hide_label: true, placeholder: "Leave a comment"%>
+<%= c.label 'Rate:' %>
+<% (1..5).each do |i| %>
+  <div class="nilstar" id=<%="#{i}"%>></div>
+<% end %>
+<%= c.hidden_field :rate %>
+<br><br>
+<%= c.submit %>
+<% end %>

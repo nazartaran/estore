@@ -1,0 +1,14 @@
+<div class="container">
+<table class='table'>
+  <tr>
+  	<th>Category</th>
+  	<th>Description</th>
+  </tr>
+  <% @category.each do |c| %>
+  <tr>
+  	<td><%= link_to "#{c.name}", product_list_path(c.id)%></td>
+  	<td><%= c.description %></td>
+  </tr>
+  <% end %>
+</table>
+</div>
