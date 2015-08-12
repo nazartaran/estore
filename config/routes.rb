@@ -25,6 +25,8 @@ Rails.application.routes.draw do
    get '/search/:condition/:query', to: 'search#index', as: :search
    post 'busket/add', to: 'busket#add_item', as: :busket_add
    get 'order/new', to: 'order#new_order', as: :new_order
+   patch 'order/payment', to: 'order#payment', as: :payment
+
   # Example resource route with options:
   #   resources :products do
   #     member do

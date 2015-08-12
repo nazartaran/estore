@@ -1,0 +1,33 @@
+<div class='container'>
+  <%= form_tag(payment_path, method: "patch") do %>
+    <h2>Your busket contains these orders. Please, choose those of them that you want to buy!</h2>
+    <table class='table'>
+      <tr>
+        <th>Products</th>
+        <th>Sum</th>
+      </tr>
+      <% @orders.each do |o| %>
+      <tr>
+        <td><%= o.ordered_products %></td>
+        <td><%= o.sum %></td>
+        <td><%= check_box_tag 'order_ids[]', o.id%></td>
+      </tr>
+      <% end %>
+    </table>
+
+    <h2>Add your credit card info</h2>
+      <%= label_tag :first_name, 'First name' %>
+      <%= text_field_tag :first_name %><br>
+      <%= label_tag :last_name, 'Last name' %>
+      <%= text_field_tag :last_name %><br>
+      <%= label_tag :month, 'Month' %>
+      <%= number_field_tag :month, nil, in: 1...13 %><br>
+      <%= label_tag :year, 'Year' %>
+      <%= number_field_tag :year, nil, in: 2000...2026 %><br>
+      <%= hidden_field_tag :type, "visa" %>
+      <%= label_tag :number, 'Number' %>
+      <%= text_field_tag :number %><br>
+      <%= submit_tag 'Buy', {confirm: 'Are you sure?'} %>
+
+    <% end %>
+</div>
